@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - TechMart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/payment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="payment-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Deliver to Accra, Ghana</span>
+                    </div>
+                    <div class="header-links">
+                        <a href="#">Help</a>
+                        <a href="#">Returns & Orders</a>
+                        <a href="#">Your Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-main">
+            <div class="container">
+                <div class="header-main-content">
+                    <div class="logo">
+                        <h1>TechMart</h1>
+                    </div>
+                    
+                    <div class="search-bar">
+                        <select class="search-category">
+                            <option>All Categories</option>
+                            <option>Electronics</option>
+                            <option>Fashion</option>
+                            <option>Home & Garden</option>
+                            <option>Sports</option>
+                            <option>Books</option>
+                        </select>
+                        <input type="text" placeholder="Search for products, brands and more" class="search-input" id="searchInput">
+                        <button class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="header-actions">
+                        <div class="cart-icon" onclick="toggleCart()">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </div>
+                        <div class="user-account">
+                            <i class="fas fa-user"></i>
+                            <span>Account</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="demo.html" class="nav-link">Home</a></li>
+                    <li><a href="electronics.html" class="nav-link">Electronics</a></li>
+                    <li><a href="fashion.html" class="nav-link">Fashion</a></li>
+                    <li><a href="home-garden.html" class="nav-link">Home & Garden</a></li>
+                    <li><a href="sports.html" class="nav-link">Sports</a></li>
+                    <li><a href="books.html" class="nav-link">Books</a></li>
+                    <li><a href="deals.html" class="nav-link">Deals</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="demo.html">Home</a>
+                <span class="separator">></span>
+                <a href="cart.html">Cart</a>
+                <span class="separator">></span>
+                <span class="current">Payment</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section class="payment-section">
+        <div class="container">
+            <div class="payment-header">
+                <h1>Complete Your Order</h1>
+                <div class="checkout-steps">
+                    <div class="step completed">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Cart</span>
+                    </div>
+                    <div class="step active">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Payment</span>
+                    </div>
+                    <div class="step">
+                        <i class="fas fa-check"></i>
+                        <span>Confirmation</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-content">
+                <!-- Payment Form -->
+                <div class="payment-form-section">
+                    <form class="payment-form" id="paymentForm">
+                        <!-- Shipping Information -->
+                        <div class="form-section">
+                            <h2>Shipping Information</h2>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">Street Address *</label>
+                                <input type="text" id="address" name="address" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City *</label>
+                                    <input type="text" id="city" name="city" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="state">State/Region *</label>
+                                    <input type="text" id="state" name="state" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="zipCode">ZIP Code *</label>
+                                    <input type="text" id="zipCode" name="zipCode" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="country">Country *</label>
+                                <select id="country" name="country" required>
+                                    <option value="">Select Country</option>
+                                    <option value="GH" selected>Ghana</option>
+                                    <option value="NG">Nigeria</option>
+                                    <option value="KE">Kenya</option>
+                                    <option value="ZA">South Africa</option>
+                                    <option value="US">United States</option>
+                                    <option value="UK">United Kingdom</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Payment Method -->
+                        <div class="form-section">
+                            <h2>Payment Method</h2>
+                            <div class="payment-methods">
+                                <div class="payment-method">
+                                    <input type="radio" id="creditCard" name="paymentMethod" value="creditCard" checked>
+                                    <label for="creditCard">
+                                        <i class="fas fa-credit-card"></i>
+                                        <span>Credit/Debit Card</span>
+                                    </label>
+                                </div>
+                                <div class="payment-method">
+                                    <input type="radio" id="mobileMoney" name="paymentMethod" value="mobileMoney">
+                                    <label for="mobileMoney">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <span>Mobile Money</span>
+                                    </label>
+                                </div>
+                                <div class="payment-method">
+                                    <input type="radio" id="bankTransfer" name="paymentMethod" value="bankTransfer">
+                                    <label for="bankTransfer">
+                                        <i class="fas fa-university"></i>
+                                        <span>Bank Transfer</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Credit Card Details -->
+                            <div class="credit-card-details" id="creditCardDetails">
+                                <div class="form-group">
+                                    <label for="cardNumber">Card Number *</label>
+                                    <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="expiryDate">Expiry Date *</label>
+                                        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" maxlength="5">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cvv">CVV *</label>
+                                        <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="cardName">Name on Card *</label>
+                                    <input type="text" id="cardName" name="cardName">
+                                </div>
+                            </div>
+
+                            <!-- Mobile Money Details -->
+                            <div class="mobile-money-details" id="mobileMoneyDetails" style="display: none;">
+                                <div class="form-group">
+                                    <label for="mobileProvider">Mobile Money Provider *</label>
+                                    <select id="mobileProvider" name="mobileProvider">
+                                        <option value="">Select Provider</option>
+                                        <option value="mtn">MTN Mobile Money</option>
+                                        <option value="vodafone">Vodafone Cash</option>
+                                        <option value="airtel">AirtelTigo Money</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mobileNumber">Mobile Number *</label>
+                                    <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="+233 XX XXX XXXX">
+                                </div>
+                            </div>
+
+                            <!-- Bank Transfer Details -->
+                            <div class="bank-transfer-details" id="bankTransferDetails" style="display: none;">
+                                <div class="bank-info">
+                                    <h3>Bank Transfer Information</h3>
+                                    <div class="bank-details">
+                                        <p><strong>Bank:</strong> Ghana Commercial Bank</p>
+                                        <p><strong>Account Name:</strong> TechMart Limited</p>
+                                        <p><strong>Account Number:</strong> 1234567890</p>
+                                        <p><strong>Reference:</strong> <span id="bankReference">TECH-2024-001</span></p>
+                                    </div>
+                                    <p class="bank-note">Please include the reference number when making your transfer.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order Notes -->
+                        <div class="form-section">
+                            <h2>Order Notes (Optional)</h2>
+                            <div class="form-group">
+                                <label for="orderNotes">Special Instructions</label>
+                                <textarea id="orderNotes" name="orderNotes" rows="3" placeholder="Any special instructions for your order..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Terms and Conditions -->
+                        <div class="form-section">
+                            <div class="terms-checkbox">
+                                <input type="checkbox" id="termsAccepted" name="termsAccepted" required>
+                                <label for="termsAccepted">
+                                    I agree to the <a href="#" target="_blank">Terms and Conditions</a> and <a href="#" target="_blank">Privacy Policy</a> *
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-actions">
+                            <button type="button" class="back-btn" onclick="window.location.href='cart.html'">
+                                <i class="fas fa-arrow-left"></i> Back to Cart
+                            </button>
+                            <button type="submit" class="place-order-btn">
+                                <i class="fas fa-lock"></i> Place Order
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <div class="summary-card">
+                        <h3>Order Summary</h3>
+                        
+                        <div class="order-items" id="orderItems">
+                            <!-- Order items will be loaded here -->
+                        </div>
+                        
+                        <div class="summary-totals">
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <span id="subtotal">$0.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping</span>
+                                <span id="shipping">$0.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Tax</span>
+                                <span id="tax">$0.00</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total</span>
+                                <span id="total">$0.00</span>
+                            </div>
+                        </div>
+                        
+                        <div class="security-badges">
+                            <div class="security-badge">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>SSL Secured</span>
+                            </div>
+                            <div class="security-badge">
+                                <i class="fas fa-lock"></i>
+                                <span>256-bit Encryption</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About TechMart</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Investor Relations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechMart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/payment-script.js"></script>
+</body>
+</html>
+
+

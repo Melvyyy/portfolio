@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion - TechMart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/fashion.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="fashion-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Deliver to Accra, Ghana</span>
+                    </div>
+                    <div class="header-links">
+                        <a href="#">Help</a>
+                        <a href="#">Returns & Orders</a>
+                        <a href="#">Your Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-main">
+            <div class="container">
+                <div class="header-main-content">
+                    <div class="logo">
+                        <h1>TechMart</h1>
+                    </div>
+                    
+                    <div class="search-bar">
+                        <select class="search-category">
+                            <option>All Categories</option>
+                            <option>Electronics</option>
+                            <option>Fashion</option>
+                            <option>Home & Garden</option>
+                            <option>Sports</option>
+                            <option>Books</option>
+                        </select>
+                        <input type="text" placeholder="Search for products, brands and more" class="search-input" id="searchInput">
+                        <button class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="header-actions">
+                        <div class="cart-icon" onclick="window.location.href='cart.html'">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </div>
+                        <div class="user-account">
+                            <i class="fas fa-user"></i>
+                            <span>Account</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="demo.html" class="nav-link">Home</a></li>
+                    <li><a href="electronics.html" class="nav-link">Electronics</a></li>
+                    <li><a href="fashion.html" class="nav-link active">Fashion</a></li>
+                    <li><a href="home-garden.html" class="nav-link">Home & Garden</a></li>
+                    <li><a href="sports.html" class="nav-link">Sports</a></li>
+                    <li><a href="books.html" class="nav-link">Books</a></li>
+                    <li><a href="deals.html" class="nav-link">Deals</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Fashion Hero Banner Carousel -->
+    <section class="hero-banner fashion-hero">
+        <div class="carousel-container">
+            <div class="carousel-slides" id="fashionCarouselSlides">
+                <!-- Slide 1 - Women's Fashion -->
+                <div class="carousel-slide active" style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=600&fit=crop&crop=center');">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <h2>Women's Fashion</h2>
+                                <p>Discover the latest trends in dresses, tops, and accessories</p>
+                                <button class="cta-btn" onclick="filterByCategory('women')">Shop Women's</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 - Men's Fashion -->
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=600&fit=crop&crop=center');">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <h2>Men's Fashion</h2>
+                                <p>Stylish shirts, pants, suits and casual wear</p>
+                                <button class="cta-btn" onclick="filterByCategory('men')">Shop Men's</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 - Shoes -->
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1549298916-b41d501d3772?w=1200&h=600&fit=crop&crop=center');">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <h2>Footwear</h2>
+                                <p>Sneakers, boots, heels and all types of shoes</p>
+                                <button class="cta-btn" onclick="filterByCategory('shoes')">Shop Shoes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 4 - Accessories -->
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&h=600&fit=crop&crop=center');">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <h2>Accessories</h2>
+                                <p>Bags, jewelry, watches and fashion accessories</p>
+                                <button class="cta-btn" onclick="filterByCategory('accessories')">Shop Accessories</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carousel Navigation -->
+            <button class="carousel-btn carousel-prev" onclick="changeFashionSlide(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn carousel-next" onclick="changeFashionSlide(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+                <span class="indicator active" onclick="currentFashionSlide(1)"></span>
+                <span class="indicator" onclick="currentFashionSlide(2)"></span>
+                <span class="indicator" onclick="currentFashionSlide(3)"></span>
+                <span class="indicator" onclick="currentFashionSlide(4)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fashion Categories -->
+    <section class="fashion-categories">
+        <div class="container">
+            <h2>Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="filterByCategory('women')">
+                    <i class="fas fa-female"></i>
+                    <h3>Women's Fashion</h3>
+                    <p>Dresses, tops, bottoms & more</p>
+                </div>
+                <div class="category-card" onclick="filterByCategory('men')">
+                    <i class="fas fa-male"></i>
+                    <h3>Men's Fashion</h3>
+                    <p>Shirts, pants, suits & more</p>
+                </div>
+                <div class="category-card" onclick="filterByCategory('shoes')">
+                    <i class="fas fa-shoe-prints"></i>
+                    <h3>Shoes</h3>
+                    <p>Sneakers, boots, heels & more</p>
+                </div>
+                <div class="category-card" onclick="filterByCategory('accessories')">
+                    <i class="fas fa-gem"></i>
+                    <h3>Accessories</h3>
+                    <p>Bags, jewelry, watches & more</p>
+                </div>
+                <div class="category-card" onclick="filterByCategory('kids')">
+                    <i class="fas fa-child"></i>
+                    <h3>Kids' Fashion</h3>
+                    <p>Clothing for children</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Size Guide -->
+    <section class="size-guide">
+        <div class="container">
+            <h2>Size Guide</h2>
+            <div class="size-guide-content">
+                <div class="size-chart">
+                    <h3>Women's Sizes</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Size</th>
+                                <th>Bust (in)</th>
+                                <th>Waist (in)</th>
+                                <th>Hip (in)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>XS</td><td>32-34</td><td>24-26</td><td>34-36</td></tr>
+                            <tr><td>S</td><td>34-36</td><td>26-28</td><td>36-38</td></tr>
+                            <tr><td>M</td><td>36-38</td><td>28-30</td><td>38-40</td></tr>
+                            <tr><td>L</td><td>38-40</td><td>30-32</td><td>40-42</td></tr>
+                            <tr><td>XL</td><td>40-42</td><td>32-34</td><td>42-44</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="size-chart">
+                    <h3>Men's Sizes</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Size</th>
+                                <th>Chest (in)</th>
+                                <th>Waist (in)</th>
+                                <th>Hip (in)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>S</td><td>34-36</td><td>28-30</td><td>34-36</td></tr>
+                            <tr><td>M</td><td>36-38</td><td>30-32</td><td>36-38</td></tr>
+                            <tr><td>L</td><td>38-40</td><td>32-34</td><td>38-40</td></tr>
+                            <tr><td>XL</td><td>40-42</td><td>34-36</td><td>40-42</td></tr>
+                            <tr><td>XXL</td><td>42-44</td><td>36-38</td><td>42-44</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters and Search -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters">
+                <div class="filter-group">
+                    <label>Category:</label>
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="women">Women's Fashion</option>
+                        <option value="men">Men's Fashion</option>
+                        <option value="shoes">Shoes</option>
+                        <option value="accessories">Accessories</option>
+                        <option value="kids">Kids' Fashion</option>
+                        <option value="sports">Sportswear</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Size:</label>
+                    <select id="sizeFilter">
+                        <option value="">All Sizes</option>
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Price Range:</label>
+                    <select id="priceFilter">
+                        <option value="">All Prices</option>
+                        <option value="0-50">Under $50</option>
+                        <option value="50-100">$50 - $100</option>
+                        <option value="100-200">$100 - $200</option>
+                        <option value="200+">Over $200</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Color:</label>
+                    <select id="colorFilter">
+                        <option value="">All Colors</option>
+                        <option value="black">Black</option>
+                        <option value="white">White</option>
+                        <option value="blue">Blue</option>
+                        <option value="red">Red</option>
+                        <option value="green">Green</option>
+                        <option value="pink">Pink</option>
+                    </select>
+                </div>
+                <button class="clear-filters" onclick="clearFilters()">Clear All</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-header">
+                <h2>Fashion Products</h2>
+                <div class="view-toggle">
+                    <button class="view-btn active" onclick="setView('grid')"><i class="fas fa-th"></i></button>
+                    <button class="view-btn" onclick="setView('list')"><i class="fas fa-list"></i></button>
+                </div>
+            </div>
+            <div class="products-grid fashion-grid" id="productsGrid">
+                <!-- Products will be loaded here -->
+            </div>
+            <div class="load-more">
+                <button class="load-more-btn" onclick="loadMoreProducts()">Load More Products</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Product Details Modal -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeProductModal()"><i class="fas fa-times"></i></button>
+            <div class="modal-body" id="modalBody">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/cart-utils.js"></script>
+    <script src="../js/fashion-script.js"></script>
+</body>
+</html>

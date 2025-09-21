@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - TechMart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/confirmation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="confirmation-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Deliver to Accra, Ghana</span>
+                    </div>
+                    <div class="header-links">
+                        <a href="#">Help</a>
+                        <a href="#">Returns & Orders</a>
+                        <a href="#">Your Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-main">
+            <div class="container">
+                <div class="header-main-content">
+                    <div class="logo">
+                        <h1>TechMart</h1>
+                    </div>
+                    
+                    <div class="search-bar">
+                        <select class="search-category">
+                            <option>All Categories</option>
+                            <option>Electronics</option>
+                            <option>Fashion</option>
+                            <option>Home & Garden</option>
+                            <option>Sports</option>
+                            <option>Books</option>
+                        </select>
+                        <input type="text" placeholder="Search for products, brands and more" class="search-input" id="searchInput">
+                        <button class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="header-actions">
+                        <div class="cart-icon" onclick="toggleCart()">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </div>
+                        <div class="user-account">
+                            <i class="fas fa-user"></i>
+                            <span>Account</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="demo.html" class="nav-link">Home</a></li>
+                    <li><a href="electronics.html" class="nav-link">Electronics</a></li>
+                    <li><a href="fashion.html" class="nav-link">Fashion</a></li>
+                    <li><a href="home-garden.html" class="nav-link">Home & Garden</a></li>
+                    <li><a href="sports.html" class="nav-link">Sports</a></li>
+                    <li><a href="books.html" class="nav-link">Books</a></li>
+                    <li><a href="deals.html" class="nav-link">Deals</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Confirmation Section -->
+    <section class="confirmation-section">
+        <div class="container">
+            <div class="confirmation-header">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h1>Order Confirmed!</h1>
+                <p class="confirmation-message">
+                    Thank you for your order. We've received your payment and will process your order shortly.
+                </p>
+            </div>
+
+            <div class="confirmation-content">
+                <!-- Order Details -->
+                <div class="order-details-section">
+                    <div class="order-info-card">
+                        <h2>Order Information</h2>
+                        <div class="order-info">
+                            <div class="info-row">
+                                <span class="label">Order Number:</span>
+                                <span class="value" id="orderNumber">TECH-2024-001</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">Order Date:</span>
+                                <span class="value" id="orderDate">December 15, 2024</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">Payment Method:</span>
+                                <span class="value" id="paymentMethod">Credit Card ending in 1234</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">Total Amount:</span>
+                                <span class="value total-amount" id="totalAmount">$299.99</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shipping Information -->
+                    <div class="shipping-info-card">
+                        <h2>Shipping Information</h2>
+                        <div class="shipping-info">
+                            <div class="info-row">
+                                <span class="label">Delivery Address:</span>
+                                <span class="value" id="deliveryAddress">
+                                    123 Main Street<br>
+                                    Accra, Greater Accra 00233<br>
+                                    Ghana
+                                </span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">Expected Delivery:</span>
+                                <span class="value" id="expectedDelivery">December 20-22, 2024</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">Tracking Number:</span>
+                                <span class="value" id="trackingNumber">TECH123456789</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Items -->
+                <div class="order-items-section">
+                    <h2>Order Items</h2>
+                    <div class="order-items-list" id="orderItemsList">
+                        <!-- Order items will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Next Steps -->
+                <div class="next-steps-section">
+                    <h2>What's Next?</h2>
+                    <div class="steps-timeline">
+                        <div class="timeline-step completed">
+                            <div class="step-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="step-content">
+                                <h3>Order Placed</h3>
+                                <p>Your order has been received and is being processed.</p>
+                                <span class="step-time">Just now</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-step pending">
+                            <div class="step-icon">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <div class="step-content">
+                                <h3>Order Processing</h3>
+                                <p>We're preparing your items for shipment.</p>
+                                <span class="step-time">Within 24 hours</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-step pending">
+                            <div class="step-icon">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                            <div class="step-content">
+                                <h3>Shipped</h3>
+                                <p>Your order is on its way to you.</p>
+                                <span class="step-time">December 18, 2024</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-step pending">
+                            <div class="step-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div class="step-content">
+                                <h3>Delivered</h3>
+                                <p>Your order has been delivered to your address.</p>
+                                <span class="step-time">December 20-22, 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn-primary" onclick="window.location.href='demo.html'">
+                        <i class="fas fa-shopping-bag"></i> Continue Shopping
+                    </button>
+                    <button class="btn-secondary" onclick="printOrder()">
+                        <i class="fas fa-print"></i> Print Order
+                    </button>
+                    <button class="btn-secondary" onclick="trackOrder()">
+                        <i class="fas fa-truck"></i> Track Order
+                    </button>
+                </div>
+
+                <!-- Support Information -->
+                <div class="support-section">
+                    <h2>Need Help?</h2>
+                    <div class="support-options">
+                        <div class="support-option">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Call Us</h3>
+                                <p>+233 30 123 4567</p>
+                                <span>Mon-Fri 9AM-6PM</span>
+                            </div>
+                        </div>
+                        <div class="support-option">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email Us</h3>
+                                <p>support@techmart.com</p>
+                                <span>We'll respond within 24 hours</span>
+                            </div>
+                        </div>
+                        <div class="support-option">
+                            <i class="fas fa-comments"></i>
+                            <div>
+                                <h3>Live Chat</h3>
+                                <p>Available now</p>
+                                <span>Get instant help</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About TechMart</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Investor Relations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechMart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/confirmation-script.js"></script>
+</body>
+</html>
+
+

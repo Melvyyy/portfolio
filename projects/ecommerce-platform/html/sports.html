@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports - TechMart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/sports.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="sports-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Deliver to Accra, Ghana</span>
+                    </div>
+                    <div class="header-links">
+                        <a href="#">Help</a>
+                        <a href="#">Returns & Orders</a>
+                        <a href="#">Your Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-main">
+            <div class="container">
+                <div class="header-main-content">
+                    <div class="logo">
+                        <h1>TechMart</h1>
+                    </div>
+                    
+                    <div class="search-bar">
+                        <select class="search-category">
+                            <option>All Categories</option>
+                            <option>Electronics</option>
+                            <option>Fashion</option>
+                            <option>Home & Garden</option>
+                            <option>Sports</option>
+                            <option>Books</option>
+                        </select>
+                        <input type="text" placeholder="Search for products, brands and more" class="search-input" id="searchInput">
+                        <button class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="header-actions">
+                        <div class="cart-icon" onclick="window.location.href='cart.html'">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </div>
+                        <div class="user-account">
+                            <i class="fas fa-user"></i>
+                            <span>Account</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="demo.html" class="nav-link">Home</a></li>
+                    <li><a href="electronics.html" class="nav-link">Electronics</a></li>
+                    <li><a href="fashion.html" class="nav-link">Fashion</a></li>
+                    <li><a href="home-garden.html" class="nav-link">Home & Garden</a></li>
+                    <li><a href="sports.html" class="nav-link active">Sports</a></li>
+                    <li><a href="books.html" class="nav-link">Books</a></li>
+                    <li><a href="deals.html" class="nav-link">Deals</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sports Hero Banner Carousel -->
+    <section class="hero-banner sports-hero">
+        <div class="carousel-container">
+            <div class="carousel-slides" id="sportsCarouselSlides">
+                <!-- Slide 1 - Fitness -->
+                <div class="carousel-slide active" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=600&fit=crop&crop=center');">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <h2>Fitness & Training</h2>
+                                <p>Get fit with our range of gym equipment and fitness accessories</p>
+                                <button class="cta-btn" onclick="filterByCategory('fitness')">Shop Fitness</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 - Outdoor Sports -->
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=1200&h=600&fit=crop&crop=center');">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <h2>Outdoor Sports</h2>
+                                <p>Gear up for your next adventure with our outdoor sports equipment</p>
+                                <button class="cta-btn" onclick="filterByCategory('outdoor')">Shop Outdoor</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 - Team Sports -->
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1431324155629-1a6deb1dec8b?w=1200&h=600&fit=crop&crop=center');">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <h2>Team Sports</h2>
+                                <p>Everything you need for football, basketball, soccer and more</p>
+                                <button class="cta-btn" onclick="filterByCategory('team')">Shop Team Sports</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 4 - Water Sports -->
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&h=600&fit=crop&crop=center');">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <h2>Water Sports</h2>
+                                <p>Dive into water sports with our swimming and aquatic gear</p>
+                                <button class="cta-btn" onclick="filterByCategory('water')">Shop Water Sports</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carousel Navigation -->
+            <button class="carousel-btn carousel-prev" onclick="changeSportsSlide(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn carousel-next" onclick="changeSportsSlide(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+                <span class="indicator active" onclick="currentSportsSlide(1)"></span>
+                <span class="indicator" onclick="currentSportsSlide(2)"></span>
+                <span class="indicator" onclick="currentSportsSlide(3)"></span>
+                <span class="indicator" onclick="currentSportsSlide(4)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sports Categories -->
+    <section class="sports-categories">
+        <div class="container">
+            <h2>Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-card sports-card" onclick="filterByCategory('fitness')">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Fitness</h3>
+                    <p>Gym equipment & accessories</p>
+                </div>
+                <div class="category-card sports-card" onclick="filterByCategory('outdoor')">
+                    <i class="fas fa-hiking"></i>
+                    <h3>Outdoor</h3>
+                    <p>Camping & hiking gear</p>
+                </div>
+                <div class="category-card sports-card" onclick="filterByCategory('team')">
+                    <i class="fas fa-futbol"></i>
+                    <h3>Team Sports</h3>
+                    <p>Football, basketball & more</p>
+                </div>
+                <div class="category-card sports-card" onclick="filterByCategory('water')">
+                    <i class="fas fa-swimmer"></i>
+                    <h3>Water Sports</h3>
+                    <p>Swimming & aquatic gear</p>
+                </div>
+                <div class="category-card sports-card" onclick="filterByCategory('winter')">
+                    <i class="fas fa-skiing"></i>
+                    <h3>Winter Sports</h3>
+                    <p>Skiing & snowboarding</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters sports-filters">
+                <div class="filter-group sports-filter">
+                    <label for="categoryFilter">Category</label>
+                    <select id="categoryFilter" onchange="filterProducts()">
+                        <option value="all">All Categories</option>
+                        <option value="fitness">Fitness</option>
+                        <option value="outdoor">Outdoor</option>
+                        <option value="team">Team Sports</option>
+                        <option value="water">Water Sports</option>
+                        <option value="winter">Winter Sports</option>
+                        <option value="cycling">Cycling</option>
+                    </select>
+                </div>
+                <div class="filter-group sports-filter">
+                    <label for="brandFilter">Brand</label>
+                    <select id="brandFilter" onchange="filterProducts()">
+                        <option value="">All Brands</option>
+                        <option value="nike">Nike</option>
+                        <option value="adidas">Adidas</option>
+                        <option value="puma">Puma</option>
+                        <option value="under-armour">Under Armour</option>
+                        <option value="reebok">Reebok</option>
+                    </select>
+                </div>
+                <div class="filter-group sports-filter">
+                    <label for="priceFilter">Price Range</label>
+                    <select id="priceFilter" onchange="filterProducts()">
+                        <option value="">All Prices</option>
+                        <option value="0-50">Under $50</option>
+                        <option value="50-100">$50 - $100</option>
+                        <option value="100-200">$100 - $200</option>
+                        <option value="200+">$200+</option>
+                    </select>
+                </div>
+                <button class="clear-filters" onclick="clearFilters()">Clear Filters</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-header">
+                <h2>Sports & Fitness Products</h2>
+                <div class="view-toggle">
+                    <button class="view-btn active" onclick="toggleView('grid')">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-btn" onclick="toggleView('list')">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="products-grid sports-grid" id="productsGrid">
+                <!-- Products will be loaded here -->
+            </div>
+            
+            <div class="load-more">
+                <button class="load-more-btn" onclick="loadMoreProducts()">Load More Products</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Product Details Modal -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeProductModal()"><i class="fas fa-times"></i></button>
+            <div class="modal-body" id="modalBody">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/cart-utils.js"></script>
+    <script src="../js/sports-script.js"></script>
+</body>
+</html>

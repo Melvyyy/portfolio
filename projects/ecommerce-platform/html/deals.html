@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deals - TechMart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/deals.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="deals-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Deliver to Accra, Ghana</span>
+                    </div>
+                    <div class="header-links">
+                        <a href="#">Help</a>
+                        <a href="#">Returns & Orders</a>
+                        <a href="#">Your Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-main">
+            <div class="container">
+                <div class="header-main-content">
+                    <div class="logo">
+                        <h1>TechMart</h1>
+                    </div>
+                    
+                    <div class="search-bar">
+                        <select class="search-category">
+                            <option>All Categories</option>
+                            <option>Electronics</option>
+                            <option>Fashion</option>
+                            <option>Home & Garden</option>
+                            <option>Sports</option>
+                            <option>Books</option>
+                        </select>
+                        <input type="text" placeholder="Search for products, brands and more" class="search-input" id="searchInput">
+                        <button class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="header-actions">
+                        <div class="cart-icon" onclick="toggleCart()">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </div>
+                        <div class="user-account">
+                            <i class="fas fa-user"></i>
+                            <span>Account</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="demo.html" class="nav-link">Home</a></li>
+                    <li><a href="electronics.html" class="nav-link">Electronics</a></li>
+                    <li><a href="fashion.html" class="nav-link">Fashion</a></li>
+                    <li><a href="home-garden.html" class="nav-link">Home & Garden</a></li>
+                    <li><a href="sports.html" class="nav-link">Sports</a></li>
+                    <li><a href="books.html" class="nav-link">Books</a></li>
+                    <li><a href="deals.html" class="nav-link active">Deals</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Deals Hero Banner Carousel -->
+    <section class="hero-banner deals-hero">
+        <div class="carousel-container">
+            <div class="carousel-slides" id="dealsCarouselSlides">
+                <!-- Slide 1 - Flash Sale -->
+                <div class="carousel-slide active" style="background-image: url('https://images.unsplash.com/photo-1607082349566-187342175e2f?w=1200&h=600&fit=crop&crop=center');">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <h2>Flash Sale!</h2>
+                                <p>Limited time offers with up to 80% off on selected items</p>
+                                <button class="cta-btn" onclick="filterByCategory('flash-sale')">Shop Flash Sale</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 - Electronics Deals -->
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1607082349566-187342175e2f?w=1200&h=600&fit=crop&crop=center');">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <h2>Electronics Deals</h2>
+                                <p>Save big on smartphones, laptops, and tech accessories</p>
+                                <button class="cta-btn" onclick="filterByCategory('electronics')">Shop Electronics</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 - Fashion Clearance -->
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1607082349566-187342175e2f?w=1200&h=600&fit=crop&crop=center');">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <h2>Fashion Clearance</h2>
+                                <p>Up to 70% off on clothing, shoes, and accessories</p>
+                                <button class="cta-btn" onclick="filterByCategory('fashion')">Shop Fashion</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 4 - Home & Garden -->
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1607082349566-187342175e2f?w=1200&h=600&fit=crop&crop=center');">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <h2>Home & Garden</h2>
+                                <p>Transform your space with discounted furniture and decor</p>
+                                <button class="cta-btn" onclick="filterByCategory('home-garden')">Shop Home</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carousel Navigation -->
+            <button class="carousel-btn carousel-prev" onclick="changeDealsSlide(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn carousel-next" onclick="changeDealsSlide(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+                <span class="indicator active" onclick="currentDealsSlide(1)"></span>
+                <span class="indicator" onclick="currentDealsSlide(2)"></span>
+                <span class="indicator" onclick="currentDealsSlide(3)"></span>
+                <span class="indicator" onclick="currentDealsSlide(4)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deal Categories -->
+    <section class="deals-categories">
+        <div class="container">
+            <h2>Shop by Deal Type</h2>
+            <div class="category-grid">
+                <div class="category-card deals-card" onclick="filterByCategory('flash-sale')">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Flash Sale</h3>
+                    <p>Limited time offers</p>
+                </div>
+                <div class="category-card deals-card" onclick="filterByCategory('clearance')">
+                    <i class="fas fa-tags"></i>
+                    <h3>Clearance</h3>
+                    <p>Up to 80% off</p>
+                </div>
+                <div class="category-card deals-card" onclick="filterByCategory('bundle')">
+                    <i class="fas fa-gift"></i>
+                    <h3>Bundle Deals</h3>
+                    <p>Buy more, save more</p>
+                </div>
+                <div class="category-card deals-card" onclick="filterByCategory('daily')">
+                    <i class="fas fa-calendar-day"></i>
+                    <h3>Daily Deals</h3>
+                    <p>New deals every day</p>
+                </div>
+                <div class="category-card deals-card" onclick="filterByCategory('seasonal')">
+                    <i class="fas fa-snowflake"></i>
+                    <h3>Seasonal Sales</h3>
+                    <p>Holiday & seasonal deals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters deals-filters">
+                <div class="filter-group deals-filter">
+                    <label for="dealTypeFilter">Deal Type</label>
+                    <select id="dealTypeFilter" onchange="filterProducts()">
+                        <option value="all">All Deals</option>
+                        <option value="flash-sale">Flash Sale</option>
+                        <option value="clearance">Clearance</option>
+                        <option value="bundle">Bundle Deals</option>
+                        <option value="daily">Daily Deals</option>
+                        <option value="seasonal">Seasonal Sales</option>
+                    </select>
+                </div>
+                <div class="filter-group deals-filter">
+                    <label for="discountFilter">Discount Range</label>
+                    <select id="discountFilter" onchange="filterProducts()">
+                        <option value="">All Discounts</option>
+                        <option value="10-25">10% - 25%</option>
+                        <option value="25-50">25% - 50%</option>
+                        <option value="50-75">50% - 75%</option>
+                        <option value="75+">75%+</option>
+                    </select>
+                </div>
+                <div class="filter-group deals-filter">
+                    <label for="priceFilter">Price Range</label>
+                    <select id="priceFilter" onchange="filterProducts()">
+                        <option value="">All Prices</option>
+                        <option value="0-25">Under $25</option>
+                        <option value="25-50">$25 - $50</option>
+                        <option value="50-100">$50 - $100</option>
+                        <option value="100+">$100+</option>
+                    </select>
+                </div>
+                <button class="clear-filters" onclick="clearFilters()">Clear Filters</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-header">
+                <h2>Best Deals & Offers</h2>
+                <div class="view-toggle">
+                    <button class="view-btn active" onclick="toggleView('grid')">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-btn" onclick="toggleView('list')">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="products-grid deals-grid" id="productsGrid">
+                <!-- Products will be loaded here -->
+            </div>
+            
+            <div class="load-more">
+                <button class="load-more-btn" onclick="loadMoreProducts()">Load More Products</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: $<span id="cartTotal">0.00</span></strong>
+            </div>
+            <button class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+    <!-- Product Details Modal -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeProductModal()"><i class="fas fa-times"></i></button>
+            <div class="modal-body" id="modalBody">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/cart-utils.js"></script>
+    <script src="../js/deals-script.js"></script>
+</body>
+</html>

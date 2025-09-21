@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - TechMart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="cart-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Deliver to Accra, Ghana</span>
+                    </div>
+                    <div class="header-links">
+                        <a href="#">Help</a>
+                        <a href="#">Returns & Orders</a>
+                        <a href="#">Your Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-main">
+            <div class="container">
+                <div class="header-main-content">
+                    <div class="logo">
+                        <h1>TechMart</h1>
+                    </div>
+                    
+                    <div class="search-bar">
+                        <select class="search-category">
+                            <option>All Categories</option>
+                            <option>Electronics</option>
+                            <option>Fashion</option>
+                            <option>Home & Garden</option>
+                            <option>Sports</option>
+                            <option>Books</option>
+                        </select>
+                        <input type="text" placeholder="Search for products, brands and more" class="search-input" id="searchInput">
+                        <button class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="header-actions">
+                        <div class="cart-icon" onclick="toggleCart()">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </div>
+                        <div class="user-account">
+                            <i class="fas fa-user"></i>
+                            <span>Account</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="demo.html" class="nav-link">Home</a></li>
+                    <li><a href="electronics.html" class="nav-link">Electronics</a></li>
+                    <li><a href="fashion.html" class="nav-link">Fashion</a></li>
+                    <li><a href="home-garden.html" class="nav-link">Home & Garden</a></li>
+                    <li><a href="sports.html" class="nav-link">Sports</a></li>
+                    <li><a href="books.html" class="nav-link">Books</a></li>
+                    <li><a href="deals.html" class="nav-link">Deals</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="demo.html">Home</a>
+                <span class="separator">></span>
+                <span class="current">Shopping Cart</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="container">
+            <div class="cart-header">
+                <h1>Shopping Cart</h1>
+                <div class="cart-actions">
+                    <button class="continue-shopping-btn" onclick="window.location.href='demo.html'">
+                        <i class="fas fa-arrow-left"></i> Continue Shopping
+                    </button>
+                </div>
+            </div>
+
+            <div class="cart-content">
+                <!-- Cart Items -->
+                <div class="cart-items-section">
+                    <div class="cart-items-header">
+                        <h2>Items in your cart</h2>
+                        <button class="clear-cart-btn" onclick="clearCart()">
+                            <i class="fas fa-trash"></i> Clear Cart
+                        </button>
+                    </div>
+                    
+                    <div class="cart-items-list" id="cartItemsList">
+                        <!-- Cart items will be loaded here -->
+                    </div>
+                    
+                    <div class="empty-cart" id="emptyCart" style="display: none;">
+                        <div class="empty-cart-content">
+                            <i class="fas fa-shopping-cart"></i>
+                            <h3>Your cart is empty</h3>
+                            <p>Looks like you haven't added any items to your cart yet.</p>
+                            <button class="start-shopping-btn" onclick="window.location.href='demo.html'">
+                                Start Shopping
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="cart-summary">
+                    <div class="summary-card">
+                        <h3>Order Summary</h3>
+                        
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="subtotal">$0.00</span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span id="shipping">$0.00</span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Tax</span>
+                            <span id="tax">$0.00</span>
+                        </div>
+                        
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span id="total">$0.00</span>
+                        </div>
+                        
+                        <div class="coupon-section">
+                            <div class="coupon-input">
+                                <input type="text" placeholder="Enter coupon code" id="couponCode">
+                                <button onclick="applyCoupon()">Apply</button>
+                            </div>
+                            <div class="coupon-message" id="couponMessage"></div>
+                        </div>
+                        
+                        <button class="checkout-btn" onclick="proceedToCheckout()" id="checkoutBtn" disabled>
+                            <i class="fas fa-lock"></i> Proceed to Checkout
+                        </button>
+                        
+                        <div class="security-info">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Secure checkout with SSL encryption</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Recommended Products -->
+                    <div class="recommended-products">
+                        <h3>You might also like</h3>
+                        <div class="recommended-list" id="recommendedProducts">
+                            <!-- Recommended products will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About TechMart</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Investor Relations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechMart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/cart-script.js"></script>
+</body>
+</html>
+
+
